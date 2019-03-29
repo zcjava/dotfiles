@@ -1,0 +1,17 @@
+[core]
+	editor = vim
+[user]
+	name = zhengc
+	email = zhengc@findaily.cn
+[merge]
+	tool = vimdiff
+[alias]
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	st = status
+	co = checkout
+	br = branch
+	ci = commit
+    pl = pull
+    ps = push 
+	l = log --abbrev-commit --graph
