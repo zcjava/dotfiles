@@ -28,7 +28,7 @@
   </action>
   <action id="Back">
     <keyboard-shortcut first-keystroke="ctrl alt left" />
-    <keyboard-shortcut first-keystroke="alt minus" />
+    <keyboard-shortcut first-keystroke="meta minus" />
   </action>
   <action id="CallHierarchy">
     <keyboard-shortcut first-keystroke="ctrl alt h" />
@@ -183,7 +183,7 @@
   </action>
   <action id="Forward">
     <keyboard-shortcut first-keystroke="ctrl alt right" />
-    <keyboard-shortcut first-keystroke="alt equals" />
+    <keyboard-shortcut first-keystroke="meta equals" />
   </action>
   <action id="Generate">
     <keyboard-shortcut first-keystroke="alt insert" />
@@ -214,6 +214,9 @@
   <action id="NewElement">
     <keyboard-shortcut first-keystroke="alt insert" />
     <keyboard-shortcut first-keystroke="alt n" />
+  </action>
+  <action id="NewElementInMenuGroup">
+    <keyboard-shortcut first-keystroke="meta n" />
   </action>
   <action id="NextEditorTab">
     <keyboard-shortcut first-keystroke="shift alt u" />
@@ -275,6 +278,7 @@
   </action>
   <action id="SurroundWith">
     <keyboard-shortcut first-keystroke="alt t" />
+    <keyboard-shortcut first-keystroke="meta t" />
   </action>
   <action id="SwitchApply">
     <keyboard-shortcut first-keystroke="ctrl alt enter" />
