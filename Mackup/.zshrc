@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ossmile/.oh-my-zsh"
+export ZSH="/Users/os/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -96,3 +96,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 source ~/.bash_profile
+export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"

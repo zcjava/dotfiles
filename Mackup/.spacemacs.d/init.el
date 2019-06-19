@@ -41,12 +41,12 @@ values."
      ;; ----------------------------------------------------------------
      helm
      auto-completion
-     better-defaults
-     emacs-lisp
+     Better-defaults
+     emacs-lisp 
      git
      markdown
      org
-     ;; (shell :variables
+     ;; (shell :Variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      spell-checking
@@ -303,6 +303,11 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+
+  (setq configuration-layer--elpa-archives
+        '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+          ("org-cn"   . "http://elpa.emacs-china.org/org/")
+          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
   )
 
 (defun dotspacemacs/user-config ()
