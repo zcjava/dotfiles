@@ -96,5 +96,3 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 source ~/.bash_profile
-export PATH="/usr/local/opt/postgresql@9.4/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.5/bin:$PATH"
