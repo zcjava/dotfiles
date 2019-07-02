@@ -1,3 +1,4 @@
+
 ;; -*- mode: emacs-lisp; lexical-binding: t -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
@@ -33,28 +34,22 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
+   '(javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     javascript
-     python
-     auto-completion
-     better-defaults
-     emacs-lisp
-     ;; git
-     helm
-     markdown
-     multiple-cursors
+     ivy
      go
+     osx
+     neotree
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     treemacs
+     ;; treemacs
      ;; version-control
      )
 
@@ -212,7 +207,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Menlo"
-                               :size 15
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -474,12 +469,16 @@ before packages are loaded."
   (setq-default switch-window-timeout nil)
   (global-set-key (kbd "C-x o") 'switch-window)
 
+
   ;;window-numbering
   (require 'window-numbering)
   (window-numbering-mode 1)
 
-
-  )
+  ;; fix the bug :package org-plus-contrib is not availabe,Is the package name misspelled?
+  (require 'package)
+  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+  
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -495,7 +494,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yasnippet-snippets yapfify ws-butler writeroom-mode winum window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill treemacs-projectile toc-org symon symbol-overlay switch-window string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters pytest pyenv-mode py-isort prettier-js popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer org-bullets open-junk-file nodejs-repl nameless mwim move-text mmm-mode markdown-toc macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc indent-guide importmagic hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-package flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish devdocs define-word cython-mode counsel-projectile company-tern company-statistics company-go company-anaconda column-enforce-mode clean-aindent-mode centered-cursor-mode blacken auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))))
+    (js2-mode import-js grizzl impatient-mode htmlize simple-httpd helm-gtags helm helm-core ggtags counsel-gtags company add-node-modules-path neotree wgrep smex reveal-in-osx-finder osx-trash osx-dictionary osx-clipboard launchctl ivy-xref ivy-purpose ivy-hydra flyspell-correct-ivy yasnippet-snippets yapfify ws-butler writeroom-mode winum window-numbering which-key web-beautify volatile-highlights vi-tilde-fringe uuidgen use-package unfill treemacs-projectile toc-org symon symbol-overlay switch-window string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters pytest pyenv-mode py-isort prettier-js popwin pippel pipenv pip-requirements persp-mode pcre2el password-generator paradox overseer org-bullets open-junk-file nodejs-repl nameless mwim move-text mmm-mode markdown-toc macrostep lorem-ipsum livid-mode live-py-mode link-hint json-navigator json-mode js2-refactor js-doc indent-guide importmagic hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-pydoc helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc gh-md fuzzy font-lock+ flyspell-correct-helm flycheck-pos-tip flycheck-package flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish devdocs define-word cython-mode counsel-projectile company-tern company-statistics company-go company-anaconda column-enforce-mode clean-aindent-mode centered-cursor-mode blacken auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

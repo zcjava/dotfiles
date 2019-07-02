@@ -8,5 +8,5 @@ alias tree="tree -N"
 # export CLASSPATH=.:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar
 export PROMPT="%{$fg_bold[blue]%}$USER ${PROMPT}"
 export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/sbin:~/data/shell/bin:$GOPATH/bin:/usr/local/opt/postgresql@9.4/bin:/usr/local/opt/mysql@5.5/bin
+export PATH=$PATH:/usr/local/sbin:/usr/loca/bin:~/data/shell/bin:$GOPATH/bin:/usr/local/opt/postgresql@9.4/bin:/usr/local/opt/mysql@5.5/bin
 
