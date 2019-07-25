@@ -30,7 +30,7 @@ This function should only modify configuration layer settings."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/.spacemacs.d/")
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
@@ -41,7 +41,12 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
-     go
+     auto-completion
+     (go :variables
+         go-format-before-save t
+         go-tab-width 4
+         go-use-golangci-lint t)
+     python
      osx
      neotree
      ;; (shell :variables
@@ -49,6 +54,7 @@ This function should only modify configuration layer settings."
      ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
+     better-defaults
      ;; treemacs
      ;; version-control
      )
@@ -60,7 +66,9 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(switch-window window-numbering)
+   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary
+                                                    (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
+                                                    )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -68,13 +76,13 @@ This function should only modify configuration layer settings."
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
 
-   ;; Defines the behaviour of Spacemacs when installing packages.
-   ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
-   ;; `used-only' installs only explicitly used packages and deletes any unused
-   ;; packages as well as their unused dependencies. `used-but-keep-unused'
-   ;; installs only the used packages but won't delete unused ones. `all'
-   ;; installs *all* packages supported by Spacemacs and never uninstalls them.
-   ;; (default is `used-only')
+   ;; Defines the behaviour of Spacemacs when installing packages. Possible
+   ;; values are `used-only', `used-but-keep-unused' and `all'. `used-only'
+   ;; installs only explicitly used packages and deletes any unused packages as
+   ;; well as their unused dependencies. `used-but-keep-unused' installs only
+   ;; the used packages but won't delete unused ones. `all' installs *all*
+   ;; packages supported by Spacemacs and never uninstalls them. (default is
+   ;; `used-only')
    dotspacemacs-install-packages 'used-only))
 
 (defun dotspacemacs/init ()
@@ -448,6 +456,8 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+  (setq exec-path (append exec-path '("/usr/local/bin")))
   )
 
 (defun dotspacemacs/user-load ()
@@ -470,14 +480,44 @@ before packages are loaded."
   (global-set-key (kbd "C-x o") 'switch-window)
 
 
+  ;; remove backup file
+  (setq make-backup-files nil)
+  (require 'recentf)
+  (recentf-mode 1)
+  (setq recentf-max-menu-item 10)
+
   ;;window-numbering
   (require 'window-numbering)
   (window-numbering-mode 1)
 
+  ;; custom.el
+  (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
+  (load custom-file 'no-error 'no-message)
+
+  ;; go
+  
+  ;; flycheck-gometalinter
+
+  ;;awesome-tab
+  (global-set-key (kbd "H-1") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-2") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-3") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-4") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "s-5") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "s-6") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "s-7") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "s-8") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "s-9") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "s-0") 'awesome-tab-select-visible-tab)
+  (setq awesome-tab-style 'box)
+  ;; only show errors
+  (setq flycheck-gometalinter-errors-only t)
+  
   ;; fix the bug :package org-plus-contrib is not availabe,Is the package name misspelled?
   (require 'package)
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-  
+
+   
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
