@@ -34,7 +34,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(javascript
+   '(html
+     javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -66,12 +67,16 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary
+   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell
                                                     (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
                                                     )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
+
+
+
+
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
@@ -479,6 +484,20 @@ before packages are loaded."
   (setq-default switch-window-timeout nil)
   (global-set-key (kbd "C-x o") 'switch-window)
 
+  ;; python
+  ;; (python :variables python-backend 'anaconda)
+  ;; (python :variables python-backend 'lsp python-lsp-server 'mspyls)
+  
+  (setq-default dotspacemacs-configuration-layers
+                '((python :variables python-backend 'anaconda)))
+  (setq-default dotspacemacs-configuration-layers
+                '((python :variables python-test-runner 'pytest)))
+  (setq-default dotspacemacs-configuration-layers
+                '((python :variables python-formatter 'yapf)))
+  (setq-default dotspacemacs-configuration-layers
+                '((python :variables python-sort-imports-on-save t)))
+  (setq-default dotspacemacs-configuration-layers
+                '((python :variables python-format-on-save t)))
 
   ;; remove backup file
   (setq make-backup-files nil)
@@ -495,7 +514,11 @@ before packages are loaded."
   (load custom-file 'no-error 'no-message)
 
   ;; go
-  
+
+  ;; exec-path-from-shell
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
+
   ;; flycheck-gometalinter
 
   ;;awesome-tab
@@ -517,7 +540,16 @@ before packages are loaded."
   (require 'package)
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
-   
+  ;; show line num
+  (global-linum-mode)
+  (setq column-number-mode t)
+
+  ;; add awesome-tab minor mode
+  (awesome-tab-mode t)
+
+  ;; 高亮括号配对
+  (show-paren-mode t)
+  (setq show-paren-style 'parenthesis)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
