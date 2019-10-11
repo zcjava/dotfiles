@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
          go-use-golangci-lint t)
      python
      osx
+     common-lisp
      neotree
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -67,7 +68,7 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell
+   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq
                                                     (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
                                                     )
 
@@ -540,6 +541,8 @@ before packages are loaded."
   (require 'package)
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+  ;;(setq ns-auto-hide-menu-bar t)
   ;; show line num
   (global-linum-mode)
   (setq column-number-mode t)
@@ -547,9 +550,19 @@ before packages are loaded."
   ;; add awesome-tab minor mode
   (awesome-tab-mode t)
 
+  ;; statistics use key frequency
+  (require 'keyfreq)
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1)
+
   ;; 高亮括号配对
   (show-paren-mode t)
   (setq show-paren-style 'parenthesis)
+
+  ;; lisp
+  (setq inferior-lisp-program "/usr/local/bin/sbcl")
+  (require 'slime)
+  (slime-setup)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
