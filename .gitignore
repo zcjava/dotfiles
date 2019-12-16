@@ -15,4 +15,4 @@ Mackup/.vim/bundle/*
 Mackup/.emacs.a/elpa/
 Mackup/.emacs.d/auto-save-list/
 Mackup/.emacs.d/recentf
-
+Mackup/.spacemacs.d/node_modules
