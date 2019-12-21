@@ -68,7 +68,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
 
-   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq monokai-theme
+   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq monokai-theme cnfonts
                                                     (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
                                                     )
 
@@ -484,7 +484,13 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
-  ;; switch window
+  ;; Chinese and English fonts alignment
+  (use-package cnfonts
+    :config
+    (cnfonts-enable)
+    (setq cnfonts-use-face-font-rescale t)
+    )
+    ;; switch window
   (setq-default switch-window-shortcut-style 'alphabet)
   (setq-default switch-window-timeout nil)
   (global-set-key (kbd "C-x o") 'switch-window)
