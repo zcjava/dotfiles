@@ -46,7 +46,7 @@ This function should only modify configuration layer settings."
          go-tab-width 4
          go-use-golangci-lint t)
      python
-     osx
+    ;; osx
      common-lisp
      neotree
      ;; (shell :variables
@@ -464,7 +464,7 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
   (setq exec-path (append exec-path '("/usr/local/bin")))
-  (setq configuration-layer--elpa-archives  
+  (setq configuration-layer-elpa-archives  
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")  
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")  
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))  

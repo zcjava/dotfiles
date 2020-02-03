@@ -130,20 +130,20 @@ nmap <Leader>sp :lprevious<cr>
 
 Bundle 'ZenCoding.vim'
 
-Bundle 'valloric/YouCompleteMe'
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
-      \ 'qf' : 1,
-      \ 'notes' : 1,
-      \ 'unite' : 1,
-      \ 'text' : 1,
-      \ 'vimwiki' : 1,
-      \ 'gitcommit' : 1,
-      \}
-let g:ycm_semantic_triggers = {
-   \   'css': [ 're!^\s{4}', 're!:\s+' ],
-   \ }
-let g:ycm_seed_identifiers_with_syntax = 1
+" Bundle 'valloric/YouCompleteMe'
+" let g:ycm_filetype_blacklist = {
+"       \ 'tagbar' : 1,
+"       \ 'qf' : 1,
+"       \ 'notes' : 1,
+"       \ 'unite' : 1,
+"       \ 'text' : 1,
+"       \ 'vimwiki' : 1,
+"       \ 'gitcommit' : 1,
+"       \}
+" let g:ycm_semantic_triggers = {
+"    \   'css': [ 're!^\s{4}', 're!:\s+' ],
+"    \ }
+" let g:ycm_seed_identifiers_with_syntax = 1
 
 Bundle 'marijnh/tern_for_vim'
 Bundle 'tpope/vim-repeat'
