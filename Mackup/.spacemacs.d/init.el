@@ -485,15 +485,15 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
   ;; Chinese and English fonts alignment
-  (use-package cnfonts
-    :config
-    (cnfonts-enable)
-    (setq cnfonts-use-face-font-rescale t)
-    )
-    ;; switch window
-  (setq-default switch-window-shortcut-style 'alphabet)
-  (setq-default switch-window-timeout nil)
-  (global-set-key (kbd "C-x o") 'switch-window)
+  ;; (use-package cnfonts
+  ;;   :config
+  ;;   (cnfonts-enable)
+  ;;   (setq cnfonts-use-face-font-rescale t)
+  ;;   )
+  ;;   ;; switch window
+  ;; (setq-default switch-window-shortcut-style 'alphabet)
+  ;; (setq-default switch-window-timeout nil)
+  ;; (global-set-key (kbd "C-x o") 'switch-window) ;
 
   ;; python
   ;; (python :variables python-backend 'anaconda)
@@ -516,6 +516,7 @@ before packages are loaded."
   (recentf-mode 1)
   (setq recentf-max-menu-item 10)
 
+  (setq iconify-frame nil)
   ;;window-numbering
   (require 'window-numbering)
   (window-numbering-mode 1)
@@ -526,6 +527,7 @@ before packages are loaded."
 
   ;; go
 
+  (setq exec-path-from-shell-check-startup-files nil)
   ;; exec-path-from-shell
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize))
@@ -533,16 +535,17 @@ before packages are loaded."
   ;; flycheck-gometalinter
 
   ;;awesome-tab
-  (global-set-key (kbd "H-1") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "H-2") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "H-3") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "H-4") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "s-1") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "s-2") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "s-3") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "s-4") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "s-5") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "s-6") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "s-7") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "s-8") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "s-9") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "s-0") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "C-0") 'iconify-frame)
   (setq awesome-tab-style 'box)
   ;; only show errors
 
