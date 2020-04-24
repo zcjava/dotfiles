@@ -46,7 +46,7 @@ This function should only modify configuration layer settings."
          go-tab-width 4
          go-use-golangci-lint t)
      python
-    ;; osx
+     osx
      common-lisp
      neotree
      ;; (shell :variables
@@ -68,7 +68,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
 
-   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq monokai-theme cnfonts
+   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme
                                                     (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
                                                     )
 
@@ -197,7 +197,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
+   dotspacemacs-themes '(zenburn
                          spacemacs-dark
                          spacemacs-light)
 
@@ -498,6 +498,21 @@ before packages are loaded."
   ;; python
   ;; (python :variables python-backend 'anaconda)
   ;; (python :variables python-backend 'lsp python-lsp-server 'mspyls)
+
+  ;; zenburn theme
+  (setq zenburn-use-variable-pitch t)
+
+  ;; scale headings in org-mode
+  (setq zenburn-scale-org-headlines t)
+
+  ;; scale headings in outline-mode
+  (setq zenburn-scale-outline-headlines t)
+
+
+
+  (setq python-shell-interpreter "/usr/local/bin/python3")
+
+  (add-hook 'python-mode-hook 'anaconda-mode)
   
   (setq-default dotspacemacs-configuration-layers
                 '((python :variables python-backend 'anaconda)))
@@ -535,17 +550,16 @@ before packages are loaded."
   ;; flycheck-gometalinter
 
   ;;awesome-tab
-  (global-set-key (kbd "s-1") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "s-2") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "s-3") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "s-4") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "s-5") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "s-6") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "s-7") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "s-8") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "s-9") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "s-0") 'awesome-tab-select-visible-tab)
-  (global-set-key (kbd "C-0") 'iconify-frame)
+  (global-set-key (kbd "H-1") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-2") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-3") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-4") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-5") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-6") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-7") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-8") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-9") 'awesome-tab-select-visible-tab)
+  (global-set-key (kbd "H-0") 'awesome-tab-select-visible-tab)
   (setq awesome-tab-style 'box)
   ;; only show errors
 
@@ -557,6 +571,8 @@ before packages are loaded."
   (add-to-list 'package-archives
                '("melpa-stable" . "https://stable.melpa.org/packages/") t)
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+ 
+
   ;;(setq ns-auto-hide-menu-bar t)
   ;; show line num
   (global-linum-mode)

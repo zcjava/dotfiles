@@ -46,6 +46,7 @@
  '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
  '(pos-tip-background-color "#FFFACE")
  '(pos-tip-foreground-color "#272822")
+ '(send-mail-function (quote mailclient-send-it))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote

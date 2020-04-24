@@ -1,5 +1,5 @@
 export CLICOLOR=1
-export TERM="xterm-color"
+export TERM=xterm-256color
 # export PS1="$(whoami)"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
@@ -11,4 +11,4 @@ alias tree="tree -N"
 export PROMPT="%{$fg_bold[blue]%}$USER ${PROMPT}"
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:~/Desktop/shell/bin
-
+# export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.7/site-packages/
