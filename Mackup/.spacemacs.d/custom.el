@@ -8,7 +8,7 @@
  '(compilation-message-face (quote default))
  '(custom-safe-themes
    (quote
-    ("a2cde79e4cc8dc9a03e7d9a42fabf8928720d420034b66aecc5b665bbf05d4e9" default)))
+    ("11e57648ab04915568e558b77541d0e94e69d09c9c54c06075938b6abc0189d8" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "76c5b2592c62f6b48923c00f97f74bcb7ddb741618283bdb2be35f3c0e1030e3" "a2cde79e4cc8dc9a03e7d9a42fabf8928720d420034b66aecc5b665bbf05d4e9" default)))
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#3C3D37")
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
@@ -40,6 +40,7 @@
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f"))))
  '(magit-diff-use-overlays nil)
+ '(org-agenda-files (quote ("~/Desktop/emacsnote/org.org")))
  '(package-selected-packages
    (quote
     (js2-mode youdao-dictionary names chinese-word-at-point window-numbering switch-window keyfreq exec-path-from-shell awesome-tab yasnippet-snippets yapfify wgrep web-mode web-beautify unfill tagedit smex slime-company slime slim-mode scss-mode sass-mode reveal-in-osx-finder pytest pyenv-mode py-isort pug-mode prettier-js pippel pipenv pyvenv pip-requirements osx-trash osx-dictionary osx-clipboard nodejs-repl neotree mwim livid-mode skewer-mode live-py-mode launchctl json-navigator hierarchy json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc ivy-yasnippet ivy-xref ivy-purpose ivy-hydra importmagic epc ctable concurrent deferred impatient-mode htmlize simple-httpd haml-mode godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc fuzzy flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck-golangci-lint emmet-mode cython-mode counsel-projectile counsel-css counsel swiper ivy company-web web-completion-data company-tern dash-functional tern company-statistics company-go go-mode company-anaconda company common-lisp-snippets blacken auto-yasnippet yasnippet auto-dictionary anaconda-mode pythonic ac-ispell auto-complete ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile toc-org symon symbol-overlay string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox overseer org-bullets open-junk-file nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line)))

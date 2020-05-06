@@ -68,7 +68,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
 
-   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme
+   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme molokai-theme 
                                                     (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
                                                     )
 
@@ -197,10 +197,12 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(zenburn
+   dotspacemacs-themes '(
+                         ;;molokai
+                         zenburn
                          spacemacs-dark
                          spacemacs-light)
-
+   
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
    ;; first three are spaceline themes. `doom' is the doom-emacs mode-line.
@@ -496,10 +498,17 @@ before packages are loaded."
   ;; (global-set-key (kbd "C-x o") 'switch-window) ;
 
   ;; python
-  ;; (python :variables python-backend 'anaconda)
+  
   ;; (python :variables python-backend 'lsp python-lsp-server 'mspyls)
 
+
   ;; zenburn theme
+  (setq zenburn-override-colors-alist
+        '(("zenburn-bg+05" . "#282828")
+          ("zenburn-bg+1"  . "#2F2F2F")
+          ("zenburn-bg+2"  . "#3F3F3F")
+          ("zenburn-bg+3"  . "#4F4F4F")))
+  
   (setq zenburn-use-variable-pitch t)
 
   ;; scale headings in org-mode
@@ -512,8 +521,11 @@ before packages are loaded."
 
   (setq python-shell-interpreter "/usr/local/bin/python3")
 
-  (add-hook 'python-mode-hook 'anaconda-mode)
-  
+  ;;(setq python-shell-extra-pythonpaths (list"/usr/local/lib/python3.7/site-packages/"))
+
+  ;;(add-hook 'python-mode-hook 'anaconda-mode)
+  ;;(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+
   (setq-default dotspacemacs-configuration-layers
                 '((python :variables python-backend 'anaconda)))
   (setq-default dotspacemacs-configuration-layers
