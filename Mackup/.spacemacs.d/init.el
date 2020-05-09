@@ -68,7 +68,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
 
-   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme molokai-theme 
+   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme molokai-theme org-download
                                                     (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
                                                     )
 
@@ -78,7 +78,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(company-tern)
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -525,6 +525,7 @@ before packages are loaded."
 
   ;;(add-hook 'python-mode-hook 'anaconda-mode)
   ;;(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+  (add-hook 'dired-mode-hook 'org-download-enable)
 
   (setq-default dotspacemacs-configuration-layers
                 '((python :variables python-backend 'anaconda)))
@@ -602,6 +603,18 @@ before packages are loaded."
   (show-paren-mode t)
   (setq show-paren-style 'parenthesis)
 
+  ;;
+  (use-package org-download
+	  :ensure t 
+	  ;;将截屏功能绑定到快捷键：Ctrl + Shift + Y
+	  :bind ("C-S-y" . org-download-screenshot)
+	  :config
+	  (require 'org-download)
+	  ;; Drag and drop to Dired
+	  (add-hook 'dired-mode-hook 'org-download-enable)
+	  )
+ 
+
   ;; lisp
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
   (require 'slime)
@@ -622,7 +635,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (js2-mode youdao-dictionary names chinese-word-at-point window-numbering switch-window keyfreq exec-path-from-shell awesome-tab yasnippet-snippets yapfify wgrep web-mode web-beautify unfill tagedit smex slime-company slime slim-mode scss-mode sass-mode reveal-in-osx-finder pytest pyenv-mode py-isort pug-mode prettier-js pippel pipenv pyvenv pip-requirements osx-trash osx-dictionary osx-clipboard nodejs-repl neotree mwim livid-mode skewer-mode live-py-mode launchctl json-navigator hierarchy json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc ivy-yasnippet ivy-xref ivy-purpose ivy-hydra importmagic epc ctable concurrent deferred impatient-mode htmlize simple-httpd haml-mode godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc fuzzy flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck-golangci-lint emmet-mode cython-mode counsel-projectile counsel-css counsel swiper ivy company-web web-completion-data company-tern dash-functional tern company-statistics company-go go-mode company-anaconda company common-lisp-snippets blacken auto-yasnippet yasnippet auto-dictionary anaconda-mode pythonic ac-ispell auto-complete ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile toc-org symon symbol-overlay string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox overseer org-bullets open-junk-file nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line))))
+    (js2-mode youdao-dictionary names chinese-word-at-point window-numbering switch-window keyfreq exec-path-from-shell awesome-tab yasnippet-snippets yapfify wgrep web-mode web-beautify unfill tagedit smex slime-company slime slim-mode scss-mode sass-mode reveal-in-osx-finder pytest pyenv-mode py-isort pug-mode prettier-js pippel pipenv pyvenv pip-requirements osx-trash osx-dictionary osx-clipboard nodejs-repl neotree mwim livid-mode skewer-mode live-py-mode launchctl json-navigator hierarchy json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc ivy-yasnippet ivy-xref ivy-purpose ivy-hydra importmagic epc ctable concurrent deferred impatient-mode htmlize simple-httpd haml-mode godoctor go-tag go-rename go-impl go-guru go-gen-test go-fill-struct go-eldoc fuzzy flyspell-correct-ivy flyspell-correct flycheck-pos-tip pos-tip flycheck-golangci-lint emmet-mode cython-mode counsel-projectile counsel-css counsel swiper ivy company-web web-completion-data dash-functional tern company-statistics company-go go-mode company-anaconda company common-lisp-snippets blacken auto-yasnippet yasnippet auto-dictionary anaconda-mode pythonic ac-ispell auto-complete ws-butler writeroom-mode winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package treemacs-projectile toc-org symon symbol-overlay string-inflection spaceline-all-the-icons restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox overseer org-bullets open-junk-file nameless move-text macrostep lorem-ipsum link-hint indent-guide hybrid-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-xref helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-ls-git helm-flx helm-descbinds helm-ag google-translate golden-ratio font-lock+ flycheck-package flx-ido fill-column-indicator fancy-battery eyebrowse expand-region evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump dotenv-mode doom-modeline diminish devdocs define-word column-enforce-mode clean-aindent-mode centered-cursor-mode auto-highlight-symbol auto-compile aggressive-indent ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
