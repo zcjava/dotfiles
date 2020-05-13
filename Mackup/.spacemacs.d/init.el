@@ -492,13 +492,16 @@ before packages are loaded."
   ;;   (cnfonts-enable)
   ;;   (setq cnfonts-use-face-font-rescale t)
   ;;   )
-  ;;   ;; switch window
+
+
+  ;; switch window
   ;; (setq-default switch-window-shortcut-style 'alphabet)
   ;; (setq-default switch-window-timeout nil)
-  ;; (global-set-key (kbd "C-x o") 'switch-window) ;
+  (setq switch-window-shortcut-style 'qwerty)
+  (global-set-key (kbd "C-x o") 'switch-window) 
+
 
   ;; python
-  
   ;; (python :variables python-backend 'lsp python-lsp-server 'mspyls)
 
 
@@ -521,10 +524,10 @@ before packages are loaded."
 
   (setq python-shell-interpreter "/usr/local/bin/python3")
 
-  ;;(setq python-shell-extra-pythonpaths (list"/usr/local/lib/python3.7/site-packages/"))
+  (setq python-shell-extra-pythonpaths (list"/usr/local/lib/python3.7/site-packages/"))
 
-  ;;(add-hook 'python-mode-hook 'anaconda-mode)
-  ;;(add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
   (add-hook 'dired-mode-hook 'org-download-enable)
 
   (setq-default dotspacemacs-configuration-layers
