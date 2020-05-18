@@ -68,7 +68,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
 
-   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme molokai-theme org-download
+   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme molokai-theme org-download all-the-icons
                                                     (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
                                                     )
 
@@ -469,7 +469,13 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives  
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")  
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")  
-          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))  
+          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+
+    ;; proxy
+  (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+                             ("http" . "127.0.0.1:1087")
+                             ("https" . "127.0.0.1:1087")
+                             ))
   )
 
 (defun dotspacemacs/user-load ()
@@ -521,15 +527,12 @@ before packages are loaded."
   (setq zenburn-scale-outline-headlines t)
 
 
-
+  ;; python
   (setq python-shell-interpreter "/usr/local/bin/python3")
-
   (setq python-shell-extra-pythonpaths (list"/usr/local/lib/python3.7/site-packages/"))
-
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-  (add-hook 'dired-mode-hook 'org-download-enable)
-
+  (add-hook 'python-mode-hook 'importmagic-mode)
   (setq-default dotspacemacs-configuration-layers
                 '((python :variables python-backend 'anaconda)))
   (setq-default dotspacemacs-configuration-layers
@@ -541,6 +544,8 @@ before packages are loaded."
   (setq-default dotspacemacs-configuration-layers
                 '((python :variables python-format-on-save t)))
 
+  (add-hook 'dired-mode-hook 'org-download-enable)
+  
   ;; remove backup file
   (setq make-backup-files nil)
   (require 'recentf)
@@ -576,7 +581,10 @@ before packages are loaded."
   (global-set-key (kbd "H-8") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "H-9") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "H-0") 'awesome-tab-select-visible-tab)
-  (setq awesome-tab-style 'box)
+  ;; add awesome-tab minor mode
+  (require 'awesome-tab)
+  (awesome-tab-mode t)
+  (setq awesome-tab-style "slant")
   ;; only show errors
 
   (setq flycheck-gometalinter-errors-only t)
@@ -594,9 +602,7 @@ before packages are loaded."
   (global-linum-mode)
   (setq column-number-mode t)
 
-  ;; add awesome-tab minor mode
-  (awesome-tab-mode t)
-
+  
   ;; statistics use key frequency
   (require 'keyfreq)
   (keyfreq-mode 1)
