@@ -32,7 +32,9 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(html
+   '(yaml
+     markdown
+     html
      javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -46,6 +48,7 @@ This function should only modify configuration layer settings."
          go-tab-width 4
          go-use-golangci-lint t)
      python
+     ;;semantic
      osx
      common-lisp
      neotree
@@ -69,6 +72,7 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
 
    dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme molokai-theme org-download all-the-icons
+                                                    ;;centaur-tabs
                                                     (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
                                                     )
 
@@ -471,7 +475,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")  
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
-    ;; proxy
+  ;; proxy
   (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
                              ("http" . "127.0.0.1:1087")
                              ("https" . "127.0.0.1:1087")
@@ -570,7 +574,7 @@ before packages are loaded."
 
   ;; flycheck-gometalinter
 
-  ;;awesome-tab
+  ;; awesome-tab
   (global-set-key (kbd "H-1") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "H-2") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "H-3") 'awesome-tab-select-visible-tab)
@@ -583,10 +587,32 @@ before packages are loaded."
   (global-set-key (kbd "H-0") 'awesome-tab-select-visible-tab)
   ;; add awesome-tab minor mode
   (require 'awesome-tab)
+  (setq awesome-tab-display-icon t)
   (awesome-tab-mode t)
-  (setq awesome-tab-style "slant")
-  ;; only show errors
 
+
+  ;; (require 'centaur-tabs)
+  ;; (centaur-tabs-mode t)
+  ;; (add-hook 'python-mode-hook 'centaur-tabs-local-mode)
+  ;; (centaur-tabs-headline-match)
+  ;; (setq centaur-tabs-set-icons t)
+  ;; ;;(setq centaur-tabs-plain-icons t)
+  ;; (setq centaur-tabs-style "box")
+  ;; (setq centaur-tabs-set-bar 'under)
+  ;; (setq x-underline-at-descent-line t)
+  ;; (setq centaur-tabs-close-button nil)
+  ;; (global-set-key (kbd "H-1") 'centaur-tabs-select-visible-tab)
+  ;; (global-set-key (kbd "H-2") 'centaur-tabs-select-visible-tab)
+  ;; (global-set-key (kbd "H-3") 'centaur-tabs-select-visible-tab)
+  ;; (global-set-key (kbd "H-4") 'centaur-tabs-select-visible-tab)
+  ;; (global-set-key (kbd "H-5") 'centaur-tabs-select-visible-tab)
+  ;; (global-set-key (kbd "H-6") 'centaur-tabs-select-visible-tab)
+  ;; (global-set-key (kbd "H-7") 'centaur-tabs-select-visible-tab)
+  ;; (global-set-key (kbd "H-8") 'centaur-tabs-select-visible-tab)
+  ;; (global-set-key (kbd "H-9") 'centaur-tabs-select-visible-tab)
+  ;; (global-set-key (kbd "H-0") 'centaur-tabs-select-visible-tab)
+  
+  ;; only show errors
   (setq flycheck-gometalinter-errors-only t)
   
   ;; fix the bug :package org-plus-contrib is not availabe,Is the package name misspelled?
