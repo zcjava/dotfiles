@@ -71,7 +71,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
 
-   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme molokai-theme org-download all-the-icons
+   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme molokai-theme dracula-theme org-download all-the-icons
                                                     ;;centaur-tabs
                                                     (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
                                                     )
@@ -201,9 +201,9 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(
+   dotspacemacs-themes '(dracula                        
                          ;;molokai
-                         zenburn
+                         ;;zenburn
                          spacemacs-dark
                          spacemacs-light)
    
@@ -476,10 +476,11 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; proxy
-  (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                             ("http" . "127.0.0.1:1087")
-                             ("https" . "127.0.0.1:1087")
-                             ))
+  ;; (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+  ;;                            ("http" . "127.0.0.1:1087")
+  ;;                            ("https" . "127.0.0.1:1087")
+  ;;                            ))
+ 
   )
 
 (defun dotspacemacs/user-load ()
@@ -516,19 +517,19 @@ before packages are loaded."
 
 
   ;; zenburn theme
-  (setq zenburn-override-colors-alist
-        '(("zenburn-bg+05" . "#282828")
-          ("zenburn-bg+1"  . "#2F2F2F")
-          ("zenburn-bg+2"  . "#3F3F3F")
-          ("zenburn-bg+3"  . "#4F4F4F")))
+  ;; (setq zenburn-override-colors-alist
+  ;;       '(("zenburn-bg+05" . "#282828")
+  ;;         ("zenburn-bg+1"  . "#2F2F2F")
+  ;;         ("zenburn-bg+2"  . "#3F3F3F")
+  ;;         ("zenburn-bg+3"  . "#4F4F4F")))
   
-  (setq zenburn-use-variable-pitch t)
+  ;; (setq zenburn-use-variable-pitch t)
 
-  ;; scale headings in org-mode
-  (setq zenburn-scale-org-headlines t)
+  ;; ;; scale headings in org-mode
+  ;; (setq zenburn-scale-org-headlines t)
 
-  ;; scale headings in outline-mode
-  (setq zenburn-scale-outline-headlines t)
+  ;; ;; scale headings in outline-mode
+  ;; (setq zenburn-scale-outline-headlines t)
 
 
   ;; python
@@ -555,7 +556,9 @@ before packages are loaded."
   (require 'recentf)
   (recentf-mode 1)
   (setq recentf-max-menu-item 10)
+  (setq recentf-save-file (expand-file-name "recentf" dotspacemacs-directory))
 
+  (setq bookmark-default-file (expand-file-name "bookmarks" dotspacemacs-directory))
   (setq iconify-frame nil)
   ;;window-numbering
   (require 'window-numbering)
