@@ -9,6 +9,7 @@ buildNumber.properties
 .mvn/timing.properties
 .idea/
 .DS_Store
+.#*
 *.swp
 Mackup/.vim/bundle/*
 *~
