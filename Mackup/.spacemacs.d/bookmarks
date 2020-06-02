@@ -2,7 +2,32 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("osnote"
+(("login.py"
+ (filename . "~/data/zedarepo/zeda-assistant-jzl-data/jzl/spiders/Login.py")
+ (front-context-string . "arse_login)\n\n   ")
+ (rear-context-string . " callback=self.p")
+ (position . 1381))
+("osnote_python"
+ (filename . "~/data/osnote/python/python.org")
+ (front-context-string . "* outline\n  使用sp")
+ (rear-context-string)
+ (position . 1))
+("osnote_org"
+ (filename . "~/data/osnote/spacemacs/org.org")
+ (front-context-string . "* outline\n** 标题创")
+ (rear-context-string)
+ (position . 1))
+("osnote_spacemacs"
+ (filename . "~/data/osnote/spacemacs/spacemacs.org")
+ (front-context-string . "* outline\n** 国内源")
+ (rear-context-string)
+ (position . 1))
+("osnote_git"
+ (filename . "~/data/osnote/git/git.org")
+ (front-context-string)
+ (rear-context-string . "update origin -p")
+ (position . 156))
+("osnote"
  (filename . "~/data/osnote/outline.org")
  (front-context-string . "spacemacs]]\n*** ")
  (rear-context-string . "/spacemacs.org][")
