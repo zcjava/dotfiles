@@ -476,10 +476,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; proxy
-  ;; (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-  ;;                            ("http" . "127.0.0.1:1087")
-  ;;                            ("https" . "127.0.0.1:1087")
-  ;;                            ))
+  (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+                             ("http" . "127.0.0.1:1087")
+                             ("https" . "127.0.0.1:1087")
+                             ))
  
   )
 
@@ -549,7 +549,8 @@ before packages are loaded."
   (setq-default dotspacemacs-configuration-layers
                 '((python :variables python-format-on-save t)))
 
-  (add-hook 'dired-mode-hook 'org-download-enable)
+  ;;(setq pylookup-html-locations (list "http://docs.python.org" "http://matplotlib.org"))
+
   
   ;; remove backup file
   (setq make-backup-files nil)
