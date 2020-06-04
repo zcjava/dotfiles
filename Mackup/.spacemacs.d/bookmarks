@@ -2,11 +2,11 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("login.py"
- (filename . "~/data/zedarepo/zeda-assistant-jzl-data/jzl/spiders/Login.py")
- (front-context-string . "arse_login)\n\n   ")
- (rear-context-string . " callback=self.p")
- (position . 1381))
+(("jzl_spiders"
+ (filename . "~/data/zedarepo/zeda-assistant-jzl-data/jzl/spiders/")
+ (front-context-string . "TeamYearBill.py\n")
+ (rear-context-string . "05 Jun  2 16:28 ")
+ (position . 432))
 ("osnote_python"
  (filename . "~/data/osnote/python/python.org")
  (front-context-string . "* outline\n  使用sp")

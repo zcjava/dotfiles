@@ -48,6 +48,7 @@ This function should only modify configuration layer settings."
          go-tab-width 4
          go-use-golangci-lint t)
      python
+     git
      ;;semantic
      osx
      common-lisp
@@ -538,6 +539,7 @@ before packages are loaded."
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
   (add-hook 'python-mode-hook 'importmagic-mode)
+  (setq pylookup-dir "")
   (setq-default dotspacemacs-configuration-layers
                 '((python :variables python-backend 'anaconda)))
   (setq-default dotspacemacs-configuration-layers
