@@ -654,7 +654,10 @@ before packages are loaded."
 	  ;; Drag and drop to Dired
 	  (add-hook 'dired-mode-hook 'org-download-enable)
 	  )
- 
+
+  ;; org
+  ;; org mode 插入源代码高亮
+  (setq org-src-fontify-natively t)
 
   ;; lisp
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
