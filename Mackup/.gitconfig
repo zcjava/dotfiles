@@ -15,3 +15,5 @@
     pl = pull
     ps = push 
 	l = log --abbrev-commit --graph
+[pull]
+	rebase = false
