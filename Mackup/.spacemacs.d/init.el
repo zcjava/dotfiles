@@ -526,6 +526,7 @@ before packages are loaded."
   
   ;; (setq zenburn-use-variable-pitch t)
 
+
   ;; ;; scale headings in org-mode
   ;; (setq zenburn-scale-org-headlines t)
 
@@ -533,13 +534,22 @@ before packages are loaded."
   ;; (setq zenburn-scale-outline-headlines t)
 
 
-  ;; python
+  ;; =========== python ============
+
+  ;; python need package:
+  ;;     pip install yapf
+  ;;     other package see python layer
+
   (setq python-shell-interpreter "/usr/local/bin/python3")
   (setq python-shell-extra-pythonpaths (list"/usr/local/lib/python3.7/site-packages/"))
-  (add-hook 'python-mode-hook 'anaconda-mode)
-  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-  (add-hook 'python-mode-hook 'yapf-mode)
-  (add-hook 'python-mode-hook 'importmagic-mode)
+  (add-hook 'python-mode-hook
+            (lambda()
+            (anaconda-mode)
+            (anaconda-eldoc-mode)
+            (yapf-mode)
+            (importmagic-mode)
+            (add-hook 'before-save-hook 'spacemacs/python-remove-unused-imports)))
+
   (setq pylookup-dir "")
   (setq-default dotspacemacs-configuration-layers
                 '((python :variables python-backend 'anaconda)))
@@ -551,10 +561,12 @@ before packages are loaded."
                 '((python :variables python-sort-imports-on-save t)))
   (setq-default dotspacemacs-configuration-layers
                 '((python :variables python-format-on-save t)))
-
-  ;;(setq pylookup-html-locations (list "http://docs.python.org" "http://matplotlib.org"))
-
   
+  ;;(setq pylookup-html-locations (list "http://docs.python.org" "http://matplotlib.org"))
+  
+  ;; =========== python ============
+
+
   ;; remove backup file
   (setq make-backup-files nil)
   (require 'recentf)
