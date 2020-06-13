@@ -477,10 +477,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; proxy
-  (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                             ("http" . "127.0.0.1:1087")
-                             ("https" . "127.0.0.1:1087")
-                             ))
+  ;; (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+  ;;                            ("http" . "127.0.0.1:51330")
+  ;;                            ("https" . "127.0.0.1:51330")
+  ;;                            ))
  
   )
 
@@ -538,6 +538,7 @@ before packages are loaded."
   (setq python-shell-extra-pythonpaths (list"/usr/local/lib/python3.7/site-packages/"))
   (add-hook 'python-mode-hook 'anaconda-mode)
   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+  (add-hook 'python-mode-hook 'yapf-mode)
   (add-hook 'python-mode-hook 'importmagic-mode)
   (setq pylookup-dir "")
   (setq-default dotspacemacs-configuration-layers
