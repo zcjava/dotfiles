@@ -48,6 +48,7 @@ This function should only modify configuration layer settings."
          go-tab-width 4
          go-use-golangci-lint t)
      python
+     spacemacs-project
      git
      ;;semantic
      osx
@@ -477,10 +478,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; proxy
-  ;; (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-  ;;                            ("http" . "127.0.0.1:51330")
-  ;;                            ("https" . "127.0.0.1:51330")
-  ;;                            ))
+  (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+                              ("http" . "127.0.0.1:51330")
+                              ("https" . "127.0.0.1:51330")
+                              ))
  
   )
 
@@ -512,7 +513,8 @@ before packages are loaded."
   (setq switch-window-shortcut-style 'qwerty)
   (global-set-key (kbd "C-x o") 'switch-window) 
 
-
+  (setq tramp-copy-size-limit 1000000000000)
+  (setq tramp-inline-compress-start-size 1000000000000)
   ;; python
   ;; (python :variables python-backend 'lsp python-lsp-server 'mspyls)
 
@@ -548,7 +550,8 @@ before packages are loaded."
             (anaconda-eldoc-mode)
             (yapf-mode)
             (importmagic-mode)
-            (add-hook 'before-save-hook 'spacemacs/python-remove-unused-imports)))
+            ;;(add-hook 'before-save-hook 'spacemacs/python-remove-unused-imports)
+            ))
 
   (setq pylookup-dir "")
   (setq-default dotspacemacs-configuration-layers
