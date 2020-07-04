@@ -6,7 +6,7 @@
 * Other software 
 
 ## Intro
-Dotfiles of my mackbook pro and my macbook pro need some softwares
+Dotfiles of my pc and i need some softwares
 
 ## Installation
 1. install brew
