@@ -48,6 +48,7 @@ This function should only modify configuration layer settings."
          go-tab-width 4
          go-use-golangci-lint t)
      python
+     java
      spacemacs-project
      git
      ;;semantic
@@ -545,13 +546,19 @@ before packages are loaded."
   (setq python-shell-interpreter "/usr/local/bin/python3")
   (setq python-shell-extra-pythonpaths (list"/usr/local/lib/python3.7/site-packages/"))
   (add-hook 'python-mode-hook
+            ;;(add-hook 'before-save-hook 'spacemacs/python-remove-unused-imports)
             (lambda()
             (anaconda-mode)
             (anaconda-eldoc-mode)
             (yapf-mode)
             (importmagic-mode)
-            ;;(add-hook 'before-save-hook 'spacemacs/python-remove-unused-imports)
             ))
+
+  ;;(eval-after-load 'python
+  ;;     (add-hook 'before-save-hook 'spacemacs/python-remove-unused-imports)
+  ;;  )
+  
+  ;;(add-hook 'python-mode ('before-save-hook 'spacemacs/python-remove-unused-imports))
 
   (setq pylookup-dir "")
   (setq-default dotspacemacs-configuration-layers
@@ -564,11 +571,13 @@ before packages are loaded."
                 '((python :variables python-sort-imports-on-save t)))
   (setq-default dotspacemacs-configuration-layers
                 '((python :variables python-format-on-save t)))
-  
+
+
+
   ;;(setq pylookup-html-locations (list "http://docs.python.org" "http://matplotlib.org"))
   
   ;; =========== python ============
-
+  
 
   ;; remove backup file
   (setq make-backup-files nil)
@@ -596,6 +605,11 @@ before packages are loaded."
 
   ;; flycheck-gometalinter
 
+  ;; emacs lisp add company mode
+  (add-hook 'emacs-lisp-mode-hook 'company-mode)
+
+  ;; avy: cursor jump the char
+  (global-set-key (kbd "C-:") 'avy-goto-char)
   ;; awesome-tab
   (global-set-key (kbd "H-1") 'awesome-tab-select-visible-tab)
   (global-set-key (kbd "H-2") 'awesome-tab-select-visible-tab)
