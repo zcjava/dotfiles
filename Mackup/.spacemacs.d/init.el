@@ -480,8 +480,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; proxy
   (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                              ("http" . "127.0.0.1:51330")
-                              ("https" . "127.0.0.1:51330")
+                             ("http" . "127.0.0.1:55225")
+                              ("https" . "127.0.0.1:55225")
                               ))
  
   )
@@ -516,6 +516,18 @@ before packages are loaded."
 
   (setq tramp-copy-size-limit 1000000000000)
   (setq tramp-inline-compress-start-size 1000000000000)
+
+  ;; java
+  (setq-default dotspacemacs-configuration-layers
+                '((python :variables python-backend 'meghanada)))
+
+  (add-hook 'java-mode-hook (lambda()
+                              (meghanada-mode)
+                              (flycheck-mode)
+                              (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)
+                              ))
+  (setq meghanada-java-path "java")
+  (setq meghanada-maven-path "mvn")
   ;; python
   ;; (python :variables python-backend 'lsp python-lsp-server 'mspyls)
 
