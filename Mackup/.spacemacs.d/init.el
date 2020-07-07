@@ -479,10 +479,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; proxy
-  (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                             ("http" . "127.0.0.1:55225")
-                              ("https" . "127.0.0.1:55225")
-                              ))
+  ;; (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+  ;;                            ("http" . "127.0.0.1:50021")
+  ;;                            ("https" . "127.0.0.1:50021")
+  ;;                             ))
  
   )
 
@@ -507,6 +507,9 @@ before packages are loaded."
   ;;   (setq cnfonts-use-face-font-rescale t)
   ;;   )
 
+  ;; flycheck
+  ;; use American English as ispell default dictionary
+  (ispell-change-dictionary "american" t)
 
   ;; switch window
   ;; (setq-default switch-window-shortcut-style 'alphabet)
@@ -590,7 +593,9 @@ before packages are loaded."
   
   ;; =========== python ============
   
-
+  
+  
+  
   ;; remove backup file
   (setq make-backup-files nil)
   (require 'recentf)
