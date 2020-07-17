@@ -34,6 +34,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(yaml
      markdown
+     lsp
      html
      javascript
      ;; ----------------------------------------------------------------
@@ -49,6 +50,8 @@ This function should only modify configuration layer settings."
          go-use-golangci-lint t)
      python
      java
+     (java :variables java-backend 'lsp) 
+     dap
      spacemacs-project
      git
      ;;semantic
@@ -479,10 +482,10 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; proxy
-  ;; (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-  ;;                            ("http" . "127.0.0.1:50021")
-  ;;                            ("https" . "127.0.0.1:50021")
-  ;;                             ))
+  (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+                             ("http" . "127.0.0.1:55225")
+                             ("https" . "127.0.0.1:55225")
+                              ))
  
   )
 
@@ -521,16 +524,33 @@ before packages are loaded."
   (setq tramp-inline-compress-start-size 1000000000000)
 
   ;; java
-  (setq-default dotspacemacs-configuration-layers
-                '((python :variables python-backend 'meghanada)))
+  (setq lsp-java-java-path "/Library/Java/JavaVirtualMachines/jdk-11.0.8.jdk/Contents/Home/bin/java")
+  (setq lombok-jar-path
+        (expand-file-name
+         "~/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar"
+         )
+        )
+  (setq lsp-java-vmargs
+        `("-Xmx1G"
+          "-XX:+UseG1GC"
+          "-XX:+UseStringDeduplication"
+          ,(concat "-javaagent:" lombok-jar-path)
+          ,(concat "-Xbootclasspath/a:" lombok-jar-path)))
+  
+  ;;(add-hook 'java-mode-hook 'lsp)
 
-  (add-hook 'java-mode-hook (lambda()
-                              (meghanada-mode)
-                              (flycheck-mode)
-                              (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)
-                              ))
-  (setq meghanada-java-path "java")
-  (setq meghanada-maven-path "mvn")
+  
+  ;; (setq-default dotspacemacs-configuration-layers
+  ;;               '((python :variables python-backend 'meghanada)))
+
+  ;; (add-hook 'java-mode-hook (lambda()
+  ;;                             (meghanada-mode t)
+  ;;                             (flycheck-mode +1)
+  ;;                             (setq c-basic-offset 2)
+  ;;                             (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)
+  ;;                             ))
+  ;; (setq meghanada-java-path "java")
+  ;; (setq meghanada-maven-path "mvn")
   ;; python
   ;; (python :variables python-backend 'lsp python-lsp-server 'mspyls)
 
