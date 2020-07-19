@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("jzl"
+(("java.org"
+ (filename . "~/data/osnote/java/java.org")
+ (front-context-string)
+ (rear-context-string . "的调用方法处\n    xref-")
+ (position . 692))
+("zeda-assistant"
+ (filename . "~/data/zedarepo/zeda-assistant/")
+ (front-context-string . "ReadMe.md\n  -rw-")
+ (rear-context-string . "88 Jan 31 16:58 ")
+ (position . 570))
+("jzl"
  (filename . "~/data/zedarepo/zeda-assistant-jzl-data/jzl/")
  (front-context-string . "..\n  drwxr-xr-x ")
  (rear-context-string . "52 Jul  3 22:49 ")

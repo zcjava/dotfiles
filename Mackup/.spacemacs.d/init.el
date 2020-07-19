@@ -64,6 +64,7 @@ This function should only modify configuration layer settings."
      spell-checking
      syntax-checking
      better-defaults
+     command-log
      ;; treemacs
      ;; version-control
      )
@@ -523,22 +524,33 @@ before packages are loaded."
   (setq tramp-copy-size-limit 1000000000000)
   (setq tramp-inline-compress-start-size 1000000000000)
 
-  ;; java
-  (setq lsp-java-java-path "/Library/Java/JavaVirtualMachines/jdk-11.0.8.jdk/Contents/Home/bin/java")
+  
+  ;; JAVA
+  
+  (setq lsp-java-java-path "/usr/local/opt/openjdk@11/bin/java")
   (setq lombok-jar-path
-        (expand-file-name
-         "~/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar"
-         )
+        (expand-file-name "~/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
         )
   (setq lsp-java-vmargs
-        `("-Xmx1G"
+        `("-noverify"
+          "-Xmx1G"
           "-XX:+UseG1GC"
           "-XX:+UseStringDeduplication"
           ,(concat "-javaagent:" lombok-jar-path)
-          ,(concat "-Xbootclasspath/a:" lombok-jar-path)))
-  
-  ;;(add-hook 'java-mode-hook 'lsp)
+;;          ,(concat "-Xbootclasspath/a:" lombok-jar-path)
+          ))
 
+  ;;(add-hook 'java-mode-hook 'lsp)
+  ;;(add-hook 'lsp-mode-hook 'lsp-lens-mode)
+
+  (add-hook 'java-mode-hook (lambda()
+                              (flycheck-mode +1)
+                              (company-mode t)
+                              (dap-mode t)
+                              (dap-ui-mode t)
+                              ;;(lsp-java-boot-lens-mode t)
+                              ))
+  
   
   ;; (setq-default dotspacemacs-configuration-layers
   ;;               '((python :variables python-backend 'meghanada)))
