@@ -49,6 +49,13 @@ This function should only modify configuration layer settings."
          go-tab-width 4
          go-use-golangci-lint t)
      python
+     (python :variables
+             python-backend 'anaconda
+             python-test-runner 'pytest
+             python-formatter 'yapf
+             python-sort-imports-on-save t
+             python-format-on-save t
+             )
      java
      (java :variables java-backend 'lsp) 
      dap
@@ -62,6 +69,9 @@ This function should only modify configuration layer settings."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      spell-checking
+     (spell-checking :variables spell-checking-enable-by-default nil
+                     ispell-dictionary "american")
+     
      syntax-checking
      better-defaults
      command-log
@@ -477,15 +487,15 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
   (setq exec-path (append exec-path '("/usr/local/bin")))
-  (setq configuration-layer-elpa-archives  
-        '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")  
-          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")  
-          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+  ;; (setq configuration-layer-elpa-archives  
+  ;;       '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")  
+  ;;         ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")  
+  ;;         ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; proxy
   (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                             ("http" . "127.0.0.1:55225")
-                             ("https" . "127.0.0.1:55225")
+                             ("http" . "127.0.0.1:50021")
+                             ("https" . "127.0.0.1:50021")
                               ))
  
   )
@@ -513,7 +523,7 @@ before packages are loaded."
 
   ;; flycheck
   ;; use American English as ispell default dictionary
-  (ispell-change-dictionary "american" t)
+  ;;(ispell-change-dictionary "american" t)
 
   ;; switch window
   ;; (setq-default switch-window-shortcut-style 'alphabet)
@@ -523,14 +533,12 @@ before packages are loaded."
 
   (setq tramp-copy-size-limit 1000000000000)
   (setq tramp-inline-compress-start-size 1000000000000)
-
   
   ;; JAVA
-  
   (setq lsp-java-java-path "/usr/local/opt/openjdk@11/bin/java")
   (setq lombok-jar-path
-        (expand-file-name "~/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar")
-        )
+        (expand-file-name "~/.m2/repository/org/projectlombok/lombok/1.18.10/lombok-1.18.10.jar"))
+
   (setq lsp-java-vmargs
         `("-noverify"
           "-Xmx1G"
@@ -595,10 +603,11 @@ before packages are loaded."
   (add-hook 'python-mode-hook
             ;;(add-hook 'before-save-hook 'spacemacs/python-remove-unused-imports)
             (lambda()
-            (anaconda-mode)
+            ;;(anaconda-mode)
             (anaconda-eldoc-mode)
             (yapf-mode)
             (importmagic-mode)
+            (company-mode)
             ))
 
   ;;(eval-after-load 'python
@@ -607,18 +616,19 @@ before packages are loaded."
   
   ;;(add-hook 'python-mode ('before-save-hook 'spacemacs/python-remove-unused-imports))
 
-  (setq pylookup-dir "")
-  (setq-default dotspacemacs-configuration-layers
-                '((python :variables python-backend 'anaconda)))
-  (setq-default dotspacemacs-configuration-layers
-                '((python :variables python-test-runner 'pytest)))
-  (setq-default dotspacemacs-configuration-layers
-                '((python :variables python-formatter 'yapf)))
-  (setq-default dotspacemacs-configuration-layers
-                '((python :variables python-sort-imports-on-save t)))
-  (setq-default dotspacemacs-configuration-layers
-                '((python :variables python-format-on-save t)))
-
+  ;;(setq pylookup-dir "")
+  ;; (setq-default dotspacemacs-configuration-layers
+  ;;               '((python :variables python-backend 'anaconda)))
+  ;; (setq-default dotspacemacs-configuration-layers
+  ;;               '((python :variables python-test-runner 'pytest)))
+  ;; (setq-default dotspacemacs-configuration-layers
+  ;;               '((python :variables python-formatter 'yapf)))
+  ;; (setq-default dotspacemacs-configuration-layers
+  ;;               '((python :variables python-sort-imports-on-save t)))
+  ;; (setq-default dotspacemacs-configuration-layers
+  ;;               '((python :variables python-format-on-save t)))
+  (setq lsp-pyls-server-command '/usr/local/bin/pyls)
+  
 
 
   ;;(setq pylookup-html-locations (list "http://docs.python.org" "http://matplotlib.org"))
