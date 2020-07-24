@@ -53,7 +53,7 @@ This function should only modify configuration layer settings."
              python-backend 'anaconda
              python-test-runner 'pytest
              python-formatter 'yapf
-             python-sort-imports-on-save t
+             ;;python-sort-imports-on-save t
              python-format-on-save t
              )
      java
