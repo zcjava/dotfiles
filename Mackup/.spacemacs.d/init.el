@@ -32,7 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(yaml
+   '(sql
+     yaml
      markdown
      lsp
      html
@@ -57,8 +58,11 @@ This function should only modify configuration layer settings."
              python-format-on-save t
              )
      java
-     (java :variables java-backend 'lsp) 
      dap
+     (java :variables
+           java-backend 'lsp
+           company-minimum-prefix-length '0
+           )
      spacemacs-project
      git
      ;;semantic
@@ -88,7 +92,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
 
-   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme molokai-theme dracula-theme org-download all-the-icons
+   dotspacemacs-additional-packages '(switch-window window-numbering youdao-dictionary exec-path-from-shell keyfreq zenburn-theme molokai-theme dracula-theme org-download all-the-icons gradle-mode 
                                                     ;;centaur-tabs
                                                     (awesome-tab :location (recipe :fetcher github :repo "manateelazycat/awesome-tab"))
                                                     )
@@ -494,8 +498,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
 
   ;; proxy
   (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                             ("http" . "127.0.0.1:50021")
-                             ("https" . "127.0.0.1:50021")
+                             ("http" . "127.0.0.1:63024")
+                             ("https" . "127.0.0.1:63024")
                               ))
  
   )
@@ -549,17 +553,21 @@ before packages are loaded."
           ))
 
   ;;(add-hook 'java-mode-hook 'lsp)
-  ;;(add-hook 'lsp-mode-hook 'lsp-lens-mode)
+  (add-hook 'lsp-mode-hook 'lsp-java-lens-mode)
 
   (add-hook 'java-mode-hook (lambda()
-                              (flycheck-mode +1)
+                              (lsp t)
+                              (flycheck-mode t)
                               (company-mode t)
+                              (lsp-ui-mode t)
+                              (lsp-ui-doc-mode nil)
                               (dap-mode t)
                               (dap-ui-mode t)
-                              ;;(lsp-java-boot-lens-mode t)
+                              (lsp-java-boot-lens-mode t)
+                              (gradle-mode t)
                               ))
   
-  
+  (setq lsp-groovy-server-file (expand-file-name "~/.spacemacs.d/groovy-language-server/groovy-language-server-all.jar"))
   ;; (setq-default dotspacemacs-configuration-layers
   ;;               '((python :variables python-backend 'meghanada)))
 
