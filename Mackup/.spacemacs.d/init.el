@@ -491,16 +491,16 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
   (setq exec-path (append exec-path '("/usr/local/bin")))
-  ;; (setq configuration-layer-elpa-archives  
-  ;;       '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")  
-  ;;         ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")  
-  ;;         ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+  (setq configuration-layer-elpa-archives  
+         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")  
+           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")  
+           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
   ;; proxy
-  (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-                             ("http" . "127.0.0.1:63024")
-                             ("https" . "127.0.0.1:63024")
-                              ))
+  ;;(setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+  ;;                           ("http" . "127.0.0.1:63024")
+  ;;                           ("https" . "127.0.0.1:63024")
+  ;;                            ))
  
   )
 
@@ -532,6 +532,10 @@ before packages are loaded."
   ;; switch window
   ;; (setq-default switch-window-shortcut-style 'alphabet)
   ;; (setq-default switch-window-timeout nil)
+
+  (setq yas-snippet-dirs '("~/.spacemacs.d/yasnippets/"))
+
+  (yas-global-mode t)
   (setq switch-window-shortcut-style 'qwerty)
   (global-set-key (kbd "C-x o") 'switch-window) 
 
@@ -553,21 +557,29 @@ before packages are loaded."
           ))
 
   ;;(add-hook 'java-mode-hook 'lsp)
-  (add-hook 'lsp-mode-hook 'lsp-java-lens-mode)
-
+  (require 'lsp-java-boot)
+  (add-hook 'lsp-mode-hook 'lsp-lens-mode)
+  
   (add-hook 'java-mode-hook (lambda()
                               (lsp t)
                               (flycheck-mode t)
                               (company-mode t)
                               (lsp-ui-mode t)
                               (lsp-ui-doc-mode nil)
+                              (lsp-java-boot-lens-mode t)
                               (dap-mode t)
                               (dap-ui-mode t)
-                              (lsp-java-boot-lens-mode t)
-                              (gradle-mode t)
+                              (dap-tooltip-mode t)
+                              (tooltip-mode t)
+                              (dap-ui-controls-mode t)
+                              ;;(gradle-mode t)
                               ))
-  
+  ;; 设置xml后缀的文件主要mode为 nxml-mode
+  (add-to-list 'auto-mode-alist '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\|lzx\\|x3d\\)\\'" . nxml-mode))
+  (setq rng-schema-locating-files (list (expand-file-name "~/.spacemacs.d/schema/schemas.xml")))
+
   (setq lsp-groovy-server-file (expand-file-name "~/.spacemacs.d/groovy-language-server/groovy-language-server-all.jar"))
+  
   ;; (setq-default dotspacemacs-configuration-layers
   ;;               '((python :variables python-backend 'meghanada)))
 
@@ -721,8 +733,8 @@ before packages are loaded."
   ;; fix the bug :package org-plus-contrib is not availabe,Is the package name misspelled?
   (require 'package)
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-  (add-to-list 'package-archives
-               '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+  ;;(add-to-list 'package-archives
+  ;;             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
  
 
