@@ -58,11 +58,12 @@ This function should only modify configuration layer settings."
              python-format-on-save t
              )
      java
-     dap
      (java :variables
            java-backend 'lsp
+           lsp-java-server-install-dir (expand-file-name "~/.spacemacs.d/lsp-java-server")
            company-minimum-prefix-length '0
            )
+     dap
      spacemacs-project
      git
      ;;semantic
