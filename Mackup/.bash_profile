@@ -1,4 +1,5 @@
 export CLICOLOR=1
+export LC_ALL=zh_CN.UTF-8
 export TERM=xterm-256color
 # export PS1="$(whoami)"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
