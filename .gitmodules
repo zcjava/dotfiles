@@ -1,3 +1,0 @@
-[submodule "Mackup/.spacemacs.d/lsp-java-server"]
-	path = Mackup/.spacemacs.d/lsp-java-server
-	url = git@github.com:zcjava/lsp-java-server.git
