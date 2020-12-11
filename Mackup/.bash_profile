@@ -11,5 +11,6 @@ alias tree="tree -N"
 # export CLASSPATH=.:${JAVA_HOME}/lib/dt.jar:${JAVA_HOME}/lib/tools.jar
 export PROMPT="%{$fg_bold[blue]%}$USER ${PROMPT}"
 export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:~/Desktop/shell/bin
+#export PATH=$PATH:/usr/local/sbin:/usr/local/bin:~/Desktop/shell/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/os/Desktop/shell/bin
 # export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.7/site-packages/
