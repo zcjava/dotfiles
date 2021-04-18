@@ -7,13 +7,13 @@
 	tool = vimdiff
 [alias]
 	unstage = reset HEAD --
-    gc = git commit -m 
+    cm = commit -m 
 	last = log -1 HEAD
 	st = status
 	co = checkout
 	br = branch
 	ci = commit
-    pl = pull
+    pl = pull --rebase
     ps = push 
 	l = log --abbrev-commit --graph
 [pull]
