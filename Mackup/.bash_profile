@@ -2,6 +2,7 @@ export CLICOLOR=1
 export LC_ALL=zh_CN.UTF-8
 export TERM=xterm-256color
 # export PS1="$(whoami)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 alias python="/usr/local/bin/python3"
@@ -13,5 +14,6 @@ alias tree="tree -N"
 export GOPATH=$HOME/go
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/
 #export PATH=$PATH:/usr/local/sbin:/usr/local/bin:~/Desktop/shell/bin
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/usr/local/sbin:/usr/local/bin:/Users/os/Desktop/shell/bin
+#export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/os/Desktop/shell/bin
+export PATH=$PATH:/Users/os/Desktop/shell/bin
 # export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python3.7/site-packages/
