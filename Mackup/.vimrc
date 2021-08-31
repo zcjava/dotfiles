@@ -3,7 +3,7 @@ set clipboard=unnamed
 "runtime autoload/pathogen.vim
 "execute pathogen#infect()
 " 开启语法高亮
-set guifont=Menlo\ for\ Powerline
+" set guifont=Menlo\ for\ Powerline
 syntax enable
 filetype on
 set nu
@@ -31,7 +31,7 @@ set shiftwidth=4
 set smarttab
 
 " 总是现实状态栏
-set laststatus=2 
+" set laststatus=2 
 set encoding=utf-8
 set ruler
 " set cursorcolumn
@@ -56,9 +56,13 @@ set nofoldenable
 
 
 " vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 " jump anywhere
 Bundle 'Lokaltog/vim-easymotion'

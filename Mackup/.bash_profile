@@ -2,7 +2,7 @@ export CLICOLOR=1
 export LC_ALL=zh_CN.UTF-8
 export TERM=xterm-256color
 # export PS1="$(whoami)"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($(brew --prefix)/bin/brew shellenv)"
 #autojump
 [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
 autoload -U compinit && compinit

@@ -38,6 +38,9 @@ This function should only modify configuration layer settings."
      lsp
      html
      javascript
+     (multiple-cursors :variables
+                     multiple-cursors-backend 'mc
+                     mc/cmds-to-run-once '(upcase-region))
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -377,7 +380,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
-   dotspacemacs-smooth-scrolling t
+   dotspacemacs-smooth-scrolling nil
 
    ;; Control line numbers activation.
    ;; If set to `t', `relative' or `visual' then line numbers are enabled in all
@@ -492,16 +495,18 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
   (setq exec-path (append exec-path '("/usr/local/bin")))
-  (setq configuration-layer-elpa-archives  
-         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")  
-           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")  
-           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; (setq configuration-layer-elpa-archives                                     ;;
+  ;;        '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")   ;;
+  ;;          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")     ;;
+  ;;          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))   ;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   ;; proxy
-  ;;(setq url-proxy-services '(("no_proxy" . "127.0.0.1")
-  ;;                           ("http" . "127.0.0.1:63024")
-  ;;                           ("https" . "127.0.0.1:63024")
-  ;;                            ))
+  (setq url-proxy-services '(("no_proxy" . "127.0.0.1")
+                            ("http" . "127.0.0.1:52067")
+                            ("https" . "127.0.0.1:52067")
+                             ))
  
   )
 
