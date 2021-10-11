@@ -8,9 +8,9 @@ eval "$($(brew --prefix)/bin/brew shellenv)"
 autoload -U compinit && compinit
 #autojump
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
-alias python="/usr/bin/python3"
-alias py="python"
-alias pip="/usr/bin/pip3"
+#alias python="/usr/bin/python3"
+alias py="python3"
+#alias pip="/usr/bin/pip3"
 alias tree="tree -N"
 export GOPATH=$HOME/go
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home/
