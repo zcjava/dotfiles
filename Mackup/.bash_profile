@@ -7,6 +7,7 @@ eval "$($(brew --prefix)/bin/brew shellenv)"
 [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
 autoload -U compinit && compinit
 #autojump
+HISTFILESIZE=2000
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 #alias python="/usr/bin/python3"
 alias py="python3"
