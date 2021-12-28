@@ -2,8 +2,8 @@
 	editor = vim
 	quotepath = false
 [user]
-	name = zhengc
-	email = zhengc@peoplecommnue.com
+	name = zcjava
+	email = zcjava@qq.com
 [merge]
 	tool = vimdiff
 [alias]
