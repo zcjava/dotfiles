@@ -14,4 +14,5 @@ alias pip="pip3"
 alias tree="tree -N"
 #export GOPATH=$HOME/go
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/openjdk-11.jdk/Contents/Home/
+export JAVA_HOME=$(/usr/libexec/java_home -v11)
 export PATH=$PATH:/Users/os/Desktop/shell/bin
