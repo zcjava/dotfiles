@@ -89,9 +89,9 @@ The Follow:
   `brew install ctags`
   Tagbar of vim plugin need it 
 ### vim bundle
-  `git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`  
+  `git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`  
   `vim ~/.vimrc`   
-  `:BundleInstall`  
+  `:VundleInstall`  
   vim插件管理器，自动安装vim插件  
     其中YouCompleteMe,需要执行脚本下载第三方依赖包;
     `cd /Volumes/data/dotfiles/Mackup/.vim/bundle/YouCompleteMe/`   
