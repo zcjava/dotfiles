@@ -1,0 +1,7 @@
+--no-playlist
+--merge-output-format mkv
+-N 10
+--trim-filenames 50
+--write-thumbnail
+--convert-thumbnails png
+-o ~/Downloads/movies/%(title)s.%(ext)s
