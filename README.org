@@ -1,7 +1,8 @@
+#+PROPERTY: header-args :results silent  
 * dotfiles
 
 ** Intro
-Dotfiles of my config 
+Dotfiles of my config
 
 ** Installation
 *** brew install
@@ -32,6 +33,42 @@ mackup restore
 #+end_src
 
 ** Other 
+*** nginx install
+#+begin_src shell
+brew install nginx
+#+end_src
+
+*** emacs install
+#+begin_src shell
+brew install --cask emacs
+#+end_src
+
+#+begin_src shell
+ln -s ~/Desktop/config/configuration_self.org ~/.emacs.d/configuration_self.org
+brew install aspell
+brew install python-lsp-server
+brew install font-dejavu
+pip install --break-system-packages "python-lsp-server[all]"
+pip install --break-system-packages pyflaskes
+pip install --break-system-packages flake8
+pip install --break-system-packages pylint
+brew install fontconfig
+#+end_src
+
+*** rectangle install
+#+begin_src shell
+brew install rectangle
+#+end_src
+
+*** snap install
+from appstore install
+
+*** terminal theme restore
+#+begin_src shell
+rm -rf Library/Preferences/com.apple.Terminal.plist
+defaults import com.apple.Terminal ~/dotfiles/Mackup/Library/Preferences/com.apple.Terminal.plist
+#+end_src
+
 *** oh-my-zsh
 #+begin_src shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -43,7 +80,6 @@ brew install autojump
 brew install aspell
 brew install readline
 brew install cmake
-# brew install ctags #install later
 brew install zsh-completions
 brew install zsh-syntax-highlighting
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -54,42 +90,31 @@ vim ~/.vimrc
 ## exec :VundleInstall
 #+end_src
 
-*** nginx install
-#+begin_src shell
-brew install nginx
-#+end_src
-
 *** jdk install
 #+begin_src shell
 brew install oracle-jdk@17
 #+end_src
 
-*** input-source-pro
-#+begin_src shell
-brew install --cask input-source-pro
-#+end_src
-
-*** emacs install
-#+begin_src shell
-ln -s ~/Desktop/config/configuration_self.org configuration_self.org
-brew install --cask emacs
-brew install aspell
-brew install python-lsp-server
-brew install font-dejavu
-pip install --break-system-packages "python-lsp-server[all]"
-pip install --break-system-packages pyflaskes
-pip install --break-system-packages flake8
-pip install --break-system-packages pylint
-brew install fontconfig
-#+end_src
-
 *** node install
-#+begin_src shell
+#+begin_src shell 
 brew install node
 #+end_src
-
 *** squirrel
 #+begin_src shell
 brew install --cask squirrel
+#+end_src
+
+#+begin_src shell
+git clone --depth 1 https://github.com/rime/plum.git ~/plum
+bash ~/plum/rime-install :preset
+#+end_src
+
+#+begin_src shell
+bash ~/plum/rime-install iDvel/rime-ice:others/recipes/full
+#+end_src
+
+*** input-source-pro
+#+begin_src shell
+brew install --cask input-source-pro
 #+end_src
 
