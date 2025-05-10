@@ -45,14 +45,20 @@ brew install --cask emacs
 
 #+begin_src shell
 ln -s ~/Desktop/config/configuration_self.org ~/.emacs.d/configuration_self.org
+#+end_src
+
+#+begin_src shell
 brew install aspell
 brew install python-lsp-server
+brew install fontconfig
 brew install font-dejavu
+#+end_src
+
+#+begin_src shell
 pip install --break-system-packages "python-lsp-server[all]"
 pip install --break-system-packages pyflaskes
 pip install --break-system-packages flake8
 pip install --break-system-packages pylint
-brew install fontconfig
 #+end_src
 
 *** rectangle install
@@ -82,6 +88,9 @@ brew install readline
 brew install cmake
 brew install zsh-completions
 brew install zsh-syntax-highlighting
+#+end_src
+
+#+begin_src shell
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 #+end_src
 
@@ -99,6 +108,7 @@ brew install oracle-jdk@17
 #+begin_src shell 
 brew install node
 #+end_src
+
 *** squirrel
 #+begin_src shell
 brew install --cask squirrel
