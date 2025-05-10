@@ -71,7 +71,7 @@ from appstore install
 
 *** terminal theme restore
 #+begin_src shell
-rm -rf Library/Preferences/com.apple.Terminal.plist
+rm -rf ~/Library/Preferences/com.apple.Terminal.plist
 defaults import com.apple.Terminal ~/dotfiles/Mackup/Library/Preferences/com.apple.Terminal.plist
 #+end_src
 
