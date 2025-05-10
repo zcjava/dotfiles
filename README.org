@@ -71,6 +71,7 @@ brew install --cask input-source-pro
 
 *** emacs install
 #+begin_src shell
+ln -s ~/Desktop/config/configuration_self.org configuration_self.org
 brew install --cask emacs
 brew install aspell
 brew install python-lsp-server
