@@ -49,7 +49,6 @@ ln -s ~/Desktop/config/configuration_self.org ~/.emacs.d/configuration_self.org
 
 #+begin_src shell
 brew install aspell
-brew install python-lsp-server
 brew install fontconfig
 brew install font-dejavu
 #+end_src
