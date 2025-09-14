@@ -4,9 +4,6 @@ export TERM=xterm-256color
 eval "$(/opt/homebrew/bin/brew shellenv)"
 #autojump
 [ -f $(brew --prefix)/etc/profile.d/autojump.sh ] && . $(brew --prefix)/etc/profile.d/autojump.sh
-ZSH_COMPDUMP="$HOME/.cache/zsh/zcompdump"
-autoload -Uz compinit
-compinit -C -d "$ZSH_COMPDUMP"
 HISTFILESIZE=2000
 alias python="python3"
 alias py="python3"
