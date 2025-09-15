@@ -74,9 +74,30 @@ rm -rf ~/Library/Preferences/com.apple.Terminal.plist
 defaults import com.apple.Terminal ~/dotfiles/Mackup/Library/Preferences/com.apple.Terminal.plist
 #+end_src
 
-*** oh-my-zsh
+*** COMMENT +oh-my-zsh+
 #+begin_src shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#+end_src
+
+*** fishshell
+#+begin_src shell
+brew install fish
+#+end_src
+#+begin_src shell
+fish_config prompt choose arrow
+fish_config prompt save
+fish_config theme choose Dracula
+set -U fish_greeting (set_color magenta)"Welcome "(set_color red)"Opensmile" (set_color magenta)"Back"
+set -U fish_history_max_items 1000000
+#+end_src
+
+*** ohmyfish
+#+begin_src shell
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+#+end_src
+
+#+begin_src shell
+omf install bass
 #+end_src
 
 *** vim plugs
