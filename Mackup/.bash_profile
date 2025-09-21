@@ -16,3 +16,9 @@ export GRADLE_USER_HOME=$HOME/.m2/repository/
 export PATH=$PATH:$HOME/Desktop/shell/bin
 export GITLAB_HOME=$HOME/data/docker_storage/gitlab
 #export DOCKER_DEFAULT_PLATFORM=linux/arm64
+
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"

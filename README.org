@@ -83,6 +83,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 #+begin_src shell
 brew install fish
 #+end_src
+
 #+begin_src shell
 fish_config prompt choose arrow
 fish_config prompt save
@@ -91,7 +92,27 @@ set -U fish_greeting (set_color magenta)"Welcome "(set_color red)"Opensmile" (se
 set -U fish_history_max_items 1000000
 #+end_src
 
-*** ohmyfish
+**** fisher
+#+begin_src shell
+brew install fisher
+#+end_src
+
+#+begin_src shell
+brew install fzf
+brew install pbcopy
+#+end_src
+
+:btw:
+include plugins:
+edc/bass
+jorgebucaran/autopair.fish
+PatrickF1/fzf.fish
+:END:
+#+begin_src shell
+fisher update
+#+end_src
+
+**** COMMENT +ohmyfish+
 #+begin_src shell
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 #+end_src
