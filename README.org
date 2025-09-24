@@ -21,6 +21,20 @@ git clone git@github.com:zcjava/dotfiles.git
 #+end_src
 
 ** Usage
+*** squirrel
+#+begin_src shell
+brew install --cask squirrel
+#+end_src
+
+#+begin_src shell
+git clone --depth 1 https://github.com/rime/plum.git ~/plum
+bash ~/plum/rime-install :preset
+#+end_src
+
+#+begin_src shell
+bash ~/plum/rime-install iDvel/rime-ice:others/recipes/full
+#+end_src
+
 *** link mackup config
 #+begin_src shell
 ln -s ~/dotfiles/Mackup/.mackup.cfg  .mackup.cfg
@@ -38,9 +52,18 @@ mackup restore
 brew install nginx
 #+end_src
 
+*** node install
+#+begin_src shell 
+brew install node
+#+end_src
+
 *** emacs install
 #+begin_src shell
-brew install --cask emacs
+brew install --cask emacs-app
+#+end_src
+
+#+begin_src shell
+git clone git@github.com:zcjava/emacs.d_configuration.git ~/.emacs.d
 #+end_src
 
 #+begin_src shell
@@ -50,7 +73,7 @@ ln -s ~/Desktop/config/configuration_self.org ~/.emacs.d/configuration_self.org
 #+begin_src shell
 brew install aspell
 brew install fontconfig
-brew install font-dejavu
+brew install --cask font-dejavu-sans-mono-nerd-font
 #+end_src
 
 #+begin_src shell
@@ -143,25 +166,6 @@ vim ~/.vimrc
 *** jdk install
 #+begin_src shell
 brew install oracle-jdk@17
-#+end_src
-
-*** node install
-#+begin_src shell 
-brew install node
-#+end_src
-
-*** squirrel
-#+begin_src shell
-brew install --cask squirrel
-#+end_src
-
-#+begin_src shell
-git clone --depth 1 https://github.com/rime/plum.git ~/plum
-bash ~/plum/rime-install :preset
-#+end_src
-
-#+begin_src shell
-bash ~/plum/rime-install iDvel/rime-ice:others/recipes/full
 #+end_src
 
 *** input-source-pro
