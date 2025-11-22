@@ -118,6 +118,7 @@ set -U fish_history_max_items 1000000
 **** fisher
 #+begin_src shell
 brew install fisher
+brew install starship
 #+end_src
 
 #+begin_src shell
