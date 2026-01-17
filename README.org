@@ -43,7 +43,7 @@ ln -s ~/dotfiles/Mackup/.mackup .mackup
 
 *** mackup restore
 #+begin_src shell
-mackup restore
+mackup link
 #+end_src
 
 ** Other 
@@ -105,6 +105,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 *** fishshell
 #+begin_src shell
 brew install fish
+chsh -s /opt/homebrew/bin/fish
 #+end_src
 
 #+begin_src shell
